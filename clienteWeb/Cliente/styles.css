@@ -1,0 +1,14 @@
+h3 {
+    color: #333; /* Color del texto */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Grosor de la fuente */
+    text-align: center; /* Alineación del texto */
+    margin-top: 20px; /* Margen superior */
+}
+
+.Shu {
+    /* Tus estilos aquí */
+    color: blue; /* Por ejemplo, cambia el color del texto a azul */
+    font-size: 30px; /* Tamaño de fuente de 30px */
+    /* Otros estilos que desees aplicar */
+}

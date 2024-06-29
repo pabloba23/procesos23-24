@@ -1,0 +1,30 @@
+{
+  "name": "arquitecturabaseprocesos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js test=false",
+    "dev": "nodemon index.js test=false",
+    "testW": "node_modules\\.bin\\jasmine Servidor\\modeloSpec.js",
+    "test": "./node_modules/.bin/jasmine Servidor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabloba23/ArquitecturaBaseProcesos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloba23/ArquitecturaBaseProcesos/issues"
+  },
+  "homepage": "https://github.com/pabloba23/ArquitecturaBaseProcesos#readme",
+  "dependencies": {
+
+    "express": "^4.18.2"
+
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
