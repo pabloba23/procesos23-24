@@ -70,7 +70,7 @@ function Sistema(test){
       let res={"num":-1};
       // Contar el número de usuarios (claves) en el objeto usuarios
       res.num = Object.keys(this.usuarios).length;
-      return res.length;
+      return res.num;
   }
   
   if(!this.test){
@@ -174,6 +174,13 @@ this.crearPartida = function(email) {
       console.log("Se ha creado una nueva partida con código: " + codigoPartida);
       return codigoPartida;
   
+      if (this.cad.logs) {
+        this.registrarLog("Partida creada", email);
+      } else {
+          console.error("No se ha inicializado la colección de logs");
+      }
+      console.log("Se ha creado una nueva partida con código: " + codigoPartida);
+      return codigoPartida;
 }
 
 
@@ -223,11 +230,10 @@ this.obtenerPartidasDisponibles = function() {
       partidasDisponibles.forEach(function(codigo) {
           console.log("- Codigo de partida: " + codigo);
       });
-      return partidasDisponibles;
   } else {
       console.log("No hay partidas disponibles en este momento.");
-      return null;
   }
+  return partidasDisponibles;
 }
 
 

@@ -1,6 +1,7 @@
 function ClienteRest(){
 
-    this.url="http://localhost:3001";
+    //this.url="http://localhost:3001";
+     this.url="https://servidor-6bnn4osd7q-no.a.run.app";
 
     this.obtenerUsuarios=function(email){
         var cli=this;
@@ -91,10 +92,10 @@ function ClienteRest(){
                         $.cookie("email",data.email);
                         
 
-                        //cw.limpiar();
-                        //cw.mostrarMensaje("Bienvenido al sistema, "+data.email);
+                        cw.limpiar();
+                        cw.mostrarMensaje("Has confirmado tu email, "+data.email+ "recarga la página e inicia sesión");
                         
-                        cw.mostrarLogin();
+                        cw.mostrarPartidas();
                     }
                     else{
                         console.log("El email está ocupado");
@@ -109,36 +110,35 @@ function ClienteRest(){
             });
         }
 
-        this.loginUsuario=function(email,password){
+        // clienteRest.js
+        this.loginUsuario = function(email, password){
             $.ajax({
-                type:'POST',
-                url:this.url + '/loginUsuario',
-                data: JSON.stringify({"email":email,"password":password}),
-                success:function(data){
-                    if (data.email!=-1){				
-                        console.log("Usuario "+data.email+" ha sido registrado");
+                type: 'POST',
+                url: this.url + '/loginUsuario',
+                data: JSON.stringify({"email": email, "password": password}),
+                success: function(data){
+                    if (data.email != -1){                
+                        console.log("Usuario " + data.email + " ha sido registrado");
                         // mostrar un mensaje diciendo: consulta tu email
-                        $.cookie("email",data.email);
-                        $.cookie("token",data.data);
-                        ws.email=data.email;
+                        $.cookie("email", data.email);
+                        $.cookie("token", data.data);
+                        ws.email = data.email;
                         cw.limpiar();
-                        cw.iniciarTresEnRaya()
-                        
-                        
-                    }
-                    else{
+                        cw.mostrarPartidas();
+                    } else {
                         console.log("Correo o clave incorrecta");
-                        cw.limpiar()
+                        cw.limpiar();
                         cw.mostrarMsg("Correo o clave incorrecta.");
                     }
-                    },
-                    error:function(xhr, textStatus, errorThrown){
+                },
+                error: function(xhr, textStatus, errorThrown){
                     console.log("Status: " + textStatus); 
                     console.log("Error: " + errorThrown); 
-                    },
-                contentType:'application/json'
+                },
+                contentType: 'application/json'
             });
         }
+
 
         this.volverPantallaAnterior=function() {
             window.history.back();

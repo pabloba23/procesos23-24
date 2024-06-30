@@ -2,11 +2,13 @@ function ClienteWS(){
     this.socket;
 
     this.ini=function(){
-        this.socket=io.connect("http://localhost:3001");
+        //this.socket=io.connect("http://localhost:3001");
+        this.socket=io.connect("https://servidor-6bnn4osd7q-no.a.run.app");
     }
     this.ini();
     this.conectar=function(){
-        this.socket=io.connect("http://localhost:3001");
+        //this.socket=io.connect("http://localhost:3001");
+        this.socket=io.connect("https://servidor-6bnn4osd7q-no.a.run.app");
         this.lanzarServidorWS();
     }
  
@@ -26,6 +28,7 @@ function ClienteWS(){
             
             this.socket.on("unidoAPartida",function(datos){
                 console.log("Te has unido a la partida", datos.codigo);
+                cw.actualizarPartidas(lista)
                 
             })
 

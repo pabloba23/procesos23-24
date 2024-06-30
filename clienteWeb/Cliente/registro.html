@@ -1,22 +1,51 @@
-<div id="fmRegistro" style="background-color: #f9f9f9; padding: 40px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 450px; margin: 50px auto;">
-    <form>
-        <div style="margin-bottom: 20px;">
-            <label for="nombre" style="font-weight: bold; color: #333;">Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre" id="nombre" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label for="apellidos" style="font-weight: bold; color: #333;">Apellidos:</label>
-            <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label for="email" style="font-weight: bold; color: #333;">Email address:</label>
-            <input type="email" class="form-control" placeholder="Enter email" id="email" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label for="pwd" style="font-weight: bold; color: #333;">Password:</label>
-            <input type="password" class="form-control" placeholder="Enter password" id="pwd" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
-        </div>
-        <button type="submit" id="btnRegistro" class="btn btn-primary" style="width: 100%; background-color: #0d47a1; border: none; border-radius: 4px; padding: 12px; color: #fff; font-weight: bold; cursor: pointer;">Submit</button>
-    </form>
-    <p style="padding-top: 20px; color: #666; font-size: 16px;">¿Ya tienes una cuenta? <a href="javascript:void(0);" onclick="cw.mostrarFormulario('fmLogIn')" style="color: #0d47a1; text-decoration: none; font-weight: bold;">Iniciar sesión</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        #fmRegistro {
+            width: 100%;
+            max-width: 450px;
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="fmRegistro">
+        <form id="registroForm">
+            <div class="form-group">
+                <label for="nombre" style="font-weight: bold; color: #333;">Nombre:</label>
+                <input type="text" class="form-control" placeholder="Nombre" id="nombre" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
+            </div>
+            <div class="form-group">
+                <label for="apellidos" style="font-weight: bold; color: #333;">Apellidos:</label>
+                <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
+            </div>
+            <div class="form-group">
+                <label for="email" style="font-weight: bold; color: #333;">Email address:</label>
+                <input type="email" class="form-control" placeholder="Introduce email" id="email" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
+            </div>
+            <div class="form-group">
+                <label for="pwd" style="font-weight: bold; color: #333;">Password:</label>
+                <input type="password" class="form-control" placeholder="Introduce password" id="pwd" style="width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 12px;">
+            </div>
+            <button type="submit" id="btnRegistro" class="btn btn-primary btn-block" style="background-color: #0d47a1; border: none; border-radius: 4px; padding: 12px; color: #fff; font-weight: bold; cursor: pointer;">Submit</button>
+        </form>
+        <p style="padding-top: 20px; color: #666; font-size: 16px; text-align: center;">¿Ya tienes una cuenta? <a href="javascript:void(0);" onclick="cw.mostrarFormulario('fmLogIn')" style="color: #0d47a1; text-decoration: none; font-weight: bold;">Iniciar sesión</a></p>
+    </div>
+</body>
+</html>

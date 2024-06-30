@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer'); 
 const gv = require('./gestorVariables.js');//llamamos al gestor de variables.
-const url = "http://localhost:3005/"
-//const url= "https://arquitecturabaseprocesos-6bnn4osd7q-ew.a.run.app/";
+//const url = "http://localhost:3001/"
+const url= "https://servidor-6bnn4osd7q-no.a.run.app/";
 
 let options={
     user: "",

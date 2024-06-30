@@ -29,7 +29,8 @@ const verifyToken = (req, res, next) => {
         const token = req.header('auth-token');
         if (!token) return res.status(401).json({ error: 'Acceso denegado' })
         try {
-        const verified = jwt.verify(token, "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")
+        //const verified = jwt.verify(token, "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")
+        const verified = jwt.verify(token, "440901487-kg4t1t6mr91smv2bbb5v725g6q037ebs.apps.googleusercontent.com")
         req.user = verified
         next() // continuamos
         } catch (error) {
@@ -41,6 +42,7 @@ let ws = new moduloWS.ServidorWS();
 let io = new Server(httpServer,{cors:{ origins: '*:*'}});   
 
 const PORT = process.env.PORT || 3001;
+
 app.use(express.static(__dirname + "/"));
 
 app.use(cookieSession({
@@ -52,7 +54,8 @@ app.use(cookieSession({
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cors({
-    origin:"http://localhost:3000"
+    //origin:"http://localhost:3000"
+    origin:"https://clienteweb-6bnn4osd7q-no.a.run.app"
 }));
 
 
@@ -95,7 +98,7 @@ app.get("/numeroUsuarios",verifyToken,function(request,response){
     response.send(res);
     });
 
-    app.get("/deleteUsuario/:email",verifyToken,function(request,response){
+app.get("/deleteUsuario/:email",verifyToken,function(request,response){
     let email=request.params.email;   
     let res=sistema.deleteUsuario(email);
     response.send(res);
@@ -117,7 +120,8 @@ ws.lanzarServidor(io,sistema);
 
 app.post("/loginUsuario",function(request,response){
     sistema.loginUsuario(request.body,function(user){
-    let token=jwt.sign({email:user.email,id:user._id},"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");
+    //let token=jwt.sign({email:user.email,id:user._id},"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");
+    let token=jwt.sign({email:user.email,id:user._id},"440901487-kg4t1t6mr91smv2bbb5v725g6q037ebs.apps.googleusercontent.com");
     response.header("authtoken",token).json({error:null,data:token,email:user.email});
     })
     })
@@ -156,7 +160,8 @@ app.post('/oneTap/callback',
     let user=JSON.parse(atob(jswt.split(".")[1]));
     let email=user.email;
     sistema.usuarioGoogle({"email":email},function(obj){
-    let token=jwt.sign({email:obj.email,id:obj._id},"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");
+    //let token=jwt.sign({email:obj.email,id:obj._id},"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");
+    let token=jwt.sign({email:obj.email,id:obj._id},"440901487-kg4t1t6mr91smv2bbb5v725g6q037ebs.apps.googleusercontent.com");
     response.header("authtoken",token).json({error:null,data:token,email:obj.email});
     })
     });
@@ -190,7 +195,8 @@ app.post('/oneTap/callback',
                 if (usr.email!=-1){
                     response.cookie('email',usr.email);
                 }
-                response.redirect('/');
+                //response.redirect('http://localhost:3000');
+                response.redirect('https://clienteweb-6bnn4osd7q-no.a.run.app');
               });
             })
 
